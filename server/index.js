@@ -15,7 +15,7 @@ app.use(cors());
 
 // Creating pool instance
 const pool = new Pool({
-  host: "127.0.0.1",
+  host: "dbinstance.cjteigjyzuqh.us-east-2.rds.amazonaws.com",
   user: "AVIV_GOLDGAMER",
   password: "asterratask",
   database: "taskdb"
