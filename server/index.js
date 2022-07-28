@@ -15,7 +15,7 @@ app.use(cors());
 
 // Creating pool instance
 const pool = new Pool({
-  host: "dbinstance.cjteigjyzuqh.us-east-2.rds.amazonaws.com",
+  host: "127.0.0.1",
   user: "AVIV_GOLDGAMER",
   password: "asterratask",
   database: "taskdb"
@@ -25,8 +25,10 @@ const pool = new Pool({
 try{
   pool.connect();
 
+  // Create users table
   // pool.query("CREATE TABLE users(ID int, FirstName varchar(255), LastName varchar(255), Address varchar(255), PhoneNumber varchar(255), UNIQUE (ID));")
 
+  // Create hobbies table
   // pool.query("CREATE TABLE hobbies(UserID int, Hobby varchar(255));")
 
   console.log("Connected");
@@ -45,7 +47,6 @@ app.post("/user",(req, res) => {
 
 // Get all users
 app.get("/getUser", (req, res) => {
-  console.log("asd")
   pool.query("Select * FROM users")
   .then(result => res.send(result.rows))
 })
